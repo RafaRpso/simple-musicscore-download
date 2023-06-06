@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Download de Partitura</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+      /* Estilos para o loading */
+      .loading {
+        display: none;
+        margin-bottom: 20px;
+      }
+
+      .loading-text {
+        color: #fff;
+      }
+
+      /* Resto dos estilos */
+      body {
+        background-color: #222;
+        color: #fff;
+        font-family: Arial, sans-serif;
+      }
+
+      .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+
+      .inputs {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .input {
+        margin-bottom: 10px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      input[type="text"] {
+        padding: 5px;
+        width: 300px;
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #555;
+      }
+    </style>
+    <script>
+      function baixarPartitura() {
+        const inputLink = document.getElementById('link').value;
+        validateInputLink(inputLink);
+
+        const loading = document.getElementById('loading');
+        loading.style.display = 'block'; // Exibe o loading
+
+        axios
+          .get(`http://localhost:3000/baixar-partitura`, {
+            params: {
+              link: inputLink,
+            },
+          })
+          .then(function (response) {
+            alert('Partitura baixada com sucesso!');
+          })
+          .catch(function (error) {
+            alert("Deu erro! :( ")
+          })
+          .finally(function () {
+            loading.style.display = 'none'; // Oculta o loading quando a requisição é concluída
+          });
+      }
+
+      function validateInputLink(input) {
+        if (input == '') {
+          alert('O campo input está vazio!');
+        }
+
+        if (!input.includes('musescore.com')) {
+          alert('Não é um link válido');
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="content">
+      <h1>Download de Partitura</h1>
+      <div class="inputs">
+        <div class="input">
+          <label for="">Insira o link do MusicScores</label>
+          <input type="text" id="link">
+        </div>
+      </div>
+      <button onclick="baixarPartitura()">Baixar Partitura</button>
+      <div id="loading" class="loading">
+        <span class="loading-text">Carregando...</span>
+      </div>
+    </div>
+  </body>
+</html>
