@@ -3,70 +3,7 @@
   <head>
     <title>Download de Partitura</title>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <style>
-      /* Estilos para o loading */
-      .loading {
-        display: none;
-        margin-bottom: 20px;
-      }
-
-      .loading-text {
-        color: #fff;
-      }
-
-      /* Resto dos estilos */
-      body {
-        background-color: #222;
-        color: #fff;
-        font-family: Arial, sans-serif;
-      }
-
-      .content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-      }
-
-      h1 {
-        font-size: 24px;
-        margin-bottom: 20px;
-      }
-
-      .inputs {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 20px;
-      }
-
-      .input {
-        margin-bottom: 10px;
-      }
-
-      label {
-        display: block;
-        margin-bottom: 5px;
-      }
-
-      input[type="text"] {
-        padding: 5px;
-        width: 300px;
-      }
-
-      button {
-        padding: 10px 20px;
-        background-color: #333;
-        color: #fff;
-        border: none;
-        cursor: pointer;
-      }
-
-      button:hover {
-        background-color: #555;
-      }
-    </style>
+    <link rel="stylesheet" href="./css/style.css">
     <script>
       function baixarPartitura() {
         const inputLink = document.getElementById('link').value;
