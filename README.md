@@ -1,4 +1,4 @@
-**Front-End Application | MusicScore Download**
+***Front-End Application | MusicScore Download***
 
 **About**
 - Front-end application using dl-librescore on the backend (https://github.com/LibreScore/dl-librescore#userscript)
